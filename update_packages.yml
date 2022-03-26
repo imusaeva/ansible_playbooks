@@ -1,6 +1,6 @@
 --- # Start of YML file
 - name: Update Packages , Install Packages, Create and insert lines to a file
-  hosts: localhost
+  hosts: 10.108.0.6
   tasks: 
     - name: Update all "yum" packages
       yum: #module
@@ -13,7 +13,6 @@
           - vim
           - tree
           - wget
-          - curl
         state: latest
 
     - name: Create an empty file
@@ -28,6 +27,11 @@
           this is line one
           this is line two
           this is line three
+
+    - name: Install nginx package
+      yum: #module
+        name: nginx
+        state: present     
            
            
 
