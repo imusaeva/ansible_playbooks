@@ -1,0 +1,3 @@
+# Ignore Gather Facts Files
+gather_facts.json
+*.json
