@@ -1,13 +1,13 @@
 --- # Start of YML file
-- name: Name of the Play
+- name: Update Packages , Install Packages, Create and insert lines to a file
   hosts: localhost
   tasks: 
-    - name: 
+    - name: Update all "yum" packages
       yum: #module
         name: '*'
         state: latest
 
-    - name: Name of Task2
+    - name: Install Packages
       yum: #module
         name:
           - vim
@@ -16,11 +16,12 @@
           - curl
         state: latest
 
-    - name: Name of task3
+    - name: Create an empty file
       file: #module
         path: /tmp/file1_ansible
         state: touch
-    - name: Name of task4
+
+    - name: Insert lines to a file
       blockinfile:
         path: /tmp/file1_ansible
         block: |
