@@ -1,14 +1,21 @@
 ---
 - name: Nginx Installation and Start & Enable
-  hosts: host1
-  gather_facts: no
+  hosts: all
+  gather_facts: yes
   tasks:
     - name: Install epel-release
+      when: ansible_distribution == "CentOS"
       yum: # module
         name: epel-release
         state: latest
 
-    - name: Install Nginx
+    - name: Install nginx on Ubuntu
+      when: ansible_distribution == "Ubuntu"
+      apt: #module
+        name: nginx
+        state: latest
+
+    - name: Install Nginx on CentOS
       yum: # module
         name: nginx
         state: latest
@@ -18,4 +25,12 @@
         name: nginx
         state: started
         enabled: yes
+
+    
+
+
+
+
+  
+
              
