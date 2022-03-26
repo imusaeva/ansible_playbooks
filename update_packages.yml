@@ -1,0 +1,8 @@
+--- # Start of YML file
+- name: Name of the Play
+  hosts: localhost
+  tasks: 
+    - name: 
+      yum: #module
+        name: '*'
+        state: latest
