@@ -1,0 +1,13 @@
+---
+all:
+  hosts: #ungrouped
+    10.108.0.6:
+    10.108.0.7:
+
+  children: #child group defined by user
+    group1: #user defined group 1
+      hosts:
+        web1: #user defined name
+          ansible_host: 10.108.0.6
+        web2: #user defined name
+          ansible_host: 10.108.0.7

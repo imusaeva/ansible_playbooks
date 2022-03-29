@@ -23,7 +23,7 @@
     - name: Start and Enable Nginx
       systemd:
         name: nginx
-        state: started
+        state: stopped
         enabled: yes
 
     
