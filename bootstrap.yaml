@@ -1,0 +1,16 @@
+---
+- name: Bootstrap servers
+  hosts: group1
+  gather_facts: yes
+  tasks:
+    - name: Install packages on CentOS
+      yum:
+        name: ["vim", "curl", "wget", "tree"]
+        state: latest
+      when: ansible_pkg_mgr == "yum"
+
+    - name: Install packages on Ubuntu
+      apt:
+        name: ["vim", "curl", "wget", "tree"]
+        state: latest
+      when: ansible_pkg_mgr == "apt"
