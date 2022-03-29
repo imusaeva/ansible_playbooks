@@ -1,0 +1,19 @@
+---
+- name: Install Packages
+  hosts: group1
+  vars:
+    packages: ["vim"]
+    state: "present"
+  gather_facts: yes
+  tasks:
+    - name: Install Packages on CentOS
+      yum:
+        name: "{{ packages }}"
+        state: "{{ state }}"
+      when: ansible_pkg_mgr == "yum"
+
+    - name: Install packages on Ubuntu
+      apt:
+        name: "{{ packages }}"
+        state: "{{ state }}"
+      when: ansible_pkg_mgr == "apt" 
